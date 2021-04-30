@@ -1,3 +1,4 @@
+/*
 document.addEventListener('turbolinks:load', function(){
     var links = document.getElementsByTagName('a')
     for(link of links){
@@ -12,3 +13,4 @@ document.addEventListener('turbolinks:load', function(){
         })
     }
 })
+*/

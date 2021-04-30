@@ -1,1 +1,2 @@
-$("#current_post").html("<%= escape_javascript(render partial: 'posts/show', locals: {post: @post}) %>");
+var htmlChunk = $("<p><strong>Title:</strong><%= @post.title %><strong>Content:</strong><%= @post.content %></p>")
+$('#show').html(htmlChunk)

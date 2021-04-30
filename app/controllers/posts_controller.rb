@@ -8,9 +8,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
-    respond_to do |format|
-      format.js {render layout: false}
-    end
+    render(partial: 'show') if request.xhr?
   end
 
   # GET /posts/new

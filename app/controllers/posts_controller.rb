@@ -24,7 +24,11 @@ class PostsController < ApplicationController
   # POST /posts or /posts.json
   def create
     @post = Post.new(post_params)
-    render json: @post.to_json
+    unless @post.save
+      render json: @post.errors, status: :unprocessable_entity
+    end
+
+=begin
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: "Post was successfully created." }
@@ -34,6 +38,7 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+=end
   end
 
   # PATCH/PUT /posts/1 or /posts/1.json

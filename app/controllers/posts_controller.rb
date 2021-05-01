@@ -9,7 +9,8 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
-    render(partial: 'show') if request.xhr?
+    #render(partial: 'show') if request.xhr?
+
   end
 
   # GET /posts/new
@@ -43,9 +44,8 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
-    unless @post.update(post_params)
-      render json: @post.errors, status: :unprocessable_entity
-    end
+    @post.update(post_params)
+
 =begin
     respond_to do |format|
       if @post.update(post_params)
@@ -62,10 +62,12 @@ class PostsController < ApplicationController
   # DELETE /posts/1 or /posts/1.json
   def destroy
     @post.destroy
+=begin
     respond_to do |format|
       format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
       format.json { head :no_content }
     end
+=end
   end
 
   private
